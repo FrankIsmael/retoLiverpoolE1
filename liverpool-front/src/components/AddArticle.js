@@ -44,9 +44,9 @@ class AddArticle extends Component {
             <div className="columns is-mobile loginb">
                 <form className="column box is-three-quarters" onSubmit={this.handleFormSubmit}>
                     <div className="field " >
-                        <label className="label">Image</label>
+                        <label className="label">Imagen</label>
                         <div className="control ">
-                            <input className="input is-two-thirds" type="file" name="imageUrl" onChange={this.handleFileUpload} placeholder="name" />
+                            <input className="input is-two-thirds" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
                             <img src={this.state.imagenUrl} alt='articulo' width='100' />
                         </div>
                     </div>
