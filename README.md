@@ -9,3 +9,7 @@ Dentro de la carpete liverpool-front: yarn install
 Este archivo lleva información de la base de datos MongoDB   
 El puerto  
 Cuenta de Cloudinary para manejo de imagenes  
+
+## Correr la aplicación completa  
+Back: npm start 
+Front: yarn start  
