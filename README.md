@@ -2,8 +2,8 @@
 ## Clonar Repositorio  
 git clone link-del-repositorio
 
-En la parte de back: npm install  
-En la parte de front: yarn install 
+Dentro de la carpeta liverpool-backend: npm install  
+Dentro de la carpete liverpool-front: yarn install 
 
 ## Crear el archive .env dentro de la carpeta liverpool-backend
 Este archivo lleva información de la base de datos MongoDB   
