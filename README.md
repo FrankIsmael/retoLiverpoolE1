@@ -11,5 +11,5 @@ El puerto
 Cuenta de Cloudinary para manejo de imagenes  
 
 ## Correr la aplicación completa  
-Back: npm start 
+Back: npm start  
 Front: yarn start  
