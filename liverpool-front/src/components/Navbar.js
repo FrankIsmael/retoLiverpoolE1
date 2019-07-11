@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-//import { Redirect } from 'react-router-dom'
 
 class Navbar extends Component {
 
@@ -11,22 +10,23 @@ class Navbar extends Component {
   render() {
     return (
       <>
-        <nav className="navbar myColor">
+      <nav className="navbar is-primary" role="navigation" aria-label="main navigaton">
           <div className="navbar-brand">
-            <a className="navbar-item" href="/">
-              <img src="http://assets.liverpool.com.mx/assets/web/logos/liverpool_logo.gif" alt="liverpool" width="190" height="53" />
+            <Link className="navbar-item" to="/">
+              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/2c/b6/4f/2cb64f0f-8ad9-0642-06ca-8445e86dc4e6/AppIcon-0-1x_U007emarketing-0-0-85-220-0-4.png/246x0w.jpg" alt="liverpool" width="100" height="100" />
+            </Link>
+
+            <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBurger" href="#">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
             </a>
-            <div className="navbar-burger burger" data-target="navbarBurger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
           </div>
 
           <div id="navbarBurger" className="navbar-menu">
             <div className="navbar-start">
-                <Link className="navbar-item" to='/'>Inicio</Link>
-                <Link className="navbar-item" to='/articulos'>Lista de Articulos</Link>
+                <Link className="navbar-item" to="/">Inicio</Link>
+                <Link className="navbar-item" to="/articulos">Lista de Articulos</Link>
             </div>
           </div>
         </nav>

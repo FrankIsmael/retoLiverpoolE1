@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import AwesomeComponent from './spinner';
 
 class AddArticle extends Component {
     constructor(props) {
         super(props);
-        this.state = { imagenUrl: "", nombre: "", precio: 0 };
+        this.state = { imagenUrl: "", nombre: "", precio: 0, loading: false };
     }
 
     handleFormSubmit = (event) => {
@@ -24,10 +25,13 @@ class AddArticle extends Component {
         const uploadData = new FormData()
         uploadData.append('imagenUrl', e.target.files[0])
 
+        this.setState({ loading: true })
+
         axios.post("http://localhost:5000/api/upload", uploadData)
             .then(res => {
                 this.setState({
-                    imagenUrl: res.data.secure_url
+                    imagenUrl: res.data.secure_url,
+                    loading: false
                 })
             })
             .catch(err => { throw err })
@@ -41,32 +45,64 @@ class AddArticle extends Component {
 
     render() {
         return (
-            <div className="columns is-mobile loginb">
-                <form className="column box is-three-quarters" onSubmit={this.handleFormSubmit}>
-                    <div className="field " >
-                        <label className="label">Imagen</label>
-                        <div className="control ">
-                            <input className="input is-two-thirds" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
-                            <img src={this.state.imagenUrl} alt='articulo' width='100' />
+            <>
+                <section className="section is-top">
+                    <div className="container">
+                        <div className="columns is-multiline is-mobile">
+                            <div className="column is-12">
+                                <div className="columns is-centered">
+                                    <div className="column is-two-thirds has-text-centered has-spacing-bottom has-no-background">
+                                        <h2 className="title is-size-5 is-size-3-tablet">Bienvenido</h2>
+                                        <div className="subtitle is-size-5 is-size-4-tablet"><p>Agregar artículo</p></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="field " >
-                        <label className="label">Nombre</label>
-                        <div className="control ">
-                            <input className="input is-two-thirds" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChange(e)} />
+                </section>
+                <div className="container">
+                    <div className="columns is-multiline is-mobile">
+                        <div className="column is-12">
+                            <div className="columns is-centered">
+                                <form className="box column is-half" onSubmit={this.handleFormSubmit}>
+                                    <div className="field column" >
+                                        <label className="label column">Imagen</label>
+                                        <div className="control columns is-centered">
+                                            <input className="file-input column is-6 is-centered has-background-success" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
+                                            <span className="file-label">
+                                                Small file…
+                                    </span>
+                                        </div>
+                                        {this.state.loading ? <AwesomeComponent/> :
+                                            <img src={this.state.imagenUrl} alt='articulo' width='100' />
+                                        }
+
+
+                                    </div>
+                                    <div className="field column is-centered" >
+                                        <label className="label">Nombre</label>
+                                        <div className="control columns is-centered">
+                                            <input className="input column is-6 is-centered" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChange(e)} />
+                                        </div>
+                                    </div>
+                                    <div className="field" >
+                                        <label className="label">Precio</label>
+                                        <div className="control columns is-centered">
+                                            <input className="input column is-6 is-centered" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChange(e)} />
+                                        </div>
+                                    </div>
+                                    <div className="buttons column is-centered">
+                                        <input className="input button column is-info is-3" type="submit" value="Enviar a BD" />
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div className="field " >
-                        <label className="label">Precio</label>
-                        <div className="control ">
-                            <input className="input is-two-thirds" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChange(e)} />
-                        </div>
-                    </div>
-                    <input className="input is-two-thirds button" type="submit" value="Enviar a BD" />
-                </form>
-            </div>
+                </div>
+            </>
         )
     }
 }
 
 export default AddArticle;
+//div className="columns is-mobile"

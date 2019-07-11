@@ -23,26 +23,40 @@ class ArticleList extends Component {
     render() {
         return (
             <>
-                <div className="columns is-multiline is-mobile ">
-                    {this.state.listOfArticles.map(article => {
-                        return (
-                            <div className="column is-half card" key={article._id}>
-                                <Link to={`/articulos/${article._id}`}>
-                                    <div className="card-image">
-                                        <figure className="image is-128x128">
-                                            <img src={article.imagenUrl} alt='articulo' width='100' />
-                                        </figure>
+                <section className="section is-top">
+                    <div className="container">
+                        <div className="columns is-multiline">
+                            <div className="column is-12">
+                                <div className="columns is-centered">
+                                    <div className="column is-two-thirds has-text-centered has-spacing-bottom has-no-background">
+                                        <h2 className="title is-size-3 is-size-1-tablet">Productos</h2>
+                                        <div className="subtitle is-size-5 is-size-4-tablet"><p>Lista de productos de la base de datos</p></div>
                                     </div>
-                                    <div class="content">
-                                    <h2>{article.nombre}</h2>
-                                    <h2>${article.precio}</h2>
-                                    </div>
-                                </Link>
+                                </div>
                             </div>
-                        )
-                    })
-                    }
-                </div>
+                            {this.state.listOfArticles.map((article,i) => {
+                                return (
+                                    <div className="column is-3" key={i}>
+                                        <div className="card has-equal-height" key={article._id}>
+                                            <Link to={`/articulos/${article._id}`}>
+                                                <div className="image-card">
+                                                    <div className="image has-spacing image is-3by2">
+                                                        <img src={article.imagenUrl} alt='articulo'/>
+                                                    </div> 
+                                                </div>
+                                                <div className="card-content">
+                                                    <h3 className="title">{article.nombre}</h3>
+                                                    <h2 className="subtitle">${article.precio}</h2>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                            }
+                        </div>
+                    </div>
+                </section>
             </>
         )
     }

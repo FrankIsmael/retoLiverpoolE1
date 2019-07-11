@@ -5,6 +5,7 @@ import AddArticle from './components/AddArticle';
 import Navbar from './components/Navbar';
 import ArticleList from './components/ArticleList';
 import ArticleDetails from './components/ArticleDetails';
+import './mybulma/css/mystyles.css';
 
 class App extends Component {
   render() {
@@ -23,4 +24,3 @@ class App extends Component {
 }
 
 export default App;
-//<AddArticle/>
