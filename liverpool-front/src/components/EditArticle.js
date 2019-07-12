@@ -33,12 +33,12 @@ class EditArticle extends Component {
   deleteArticle = () => {
     const { params } = this.props.match;
     axios.delete(`http://localhost:5000/api/articulos/${params.id}`)
-    .then( () =>{
+      .then(() => {
         this.props.history.push('/articulos'); // !!!         
-    })
-    .catch((err)=>{
+      })
+      .catch((err) => {
         console.log(err)
-    })
+      })
   }
 
   handleFileUpload = async e => {
@@ -72,48 +72,50 @@ class EditArticle extends Component {
 
   render() {
     return (
-      
-       
-          <div className="column is-12">
-            <div className="columns is-centered">
-              <form className="box column is-half" onSubmit={this.handleFormSubmit}>
-                <div className="field column" >
-                  <label className="label column">Imagen</label>
-                  <div className="control columns is-centered">
+
+
+      <div className="column is-12">
+        <div className="columns is-centered">
+          <form className="box column is-half" onSubmit={this.handleFormSubmit}>
+            <div className="field column" >
+              <label className="label column">Imagen</label>
+              <div className="field column is-centered">
+                <div className="file is-primary column is-centered">
+                  <label className="file-label">
                     <input className="file-input column is-6 is-centered has-background-success" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
-                    <span className="file-label">
-                      Small file…
-                                    </span>
-                  </div>
-                  {this.state.loading ? <AwesomeComponent /> :
-                    <img src={this.state.imagenUrl} alt='articulo' width='100' />
-                  }
+                    <span className="file-cta">
+                      <span className="file-label">Elige Archivo… </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              {this.state.loading ? <AwesomeComponent /> :
+                <img src={this.state.imagenUrl} alt='articulo' width='100' />
+              }
 
 
-                </div>
-                <div className="field column is-centered" >
-                  <label className="label">Nombre</label>
-                  <div className="control columns is-centered">
-                    <input className="input column is-6 is-centered" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChangeName(e)} />
-                  </div>
-                </div>
-                <div className="field" >
-                  <label className="label">Precio</label>
-                  <div className="control columns is-centered">
-                    <input className="input column is-6 is-centered" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChangePrice(e)} />
-                  </div>
-                </div>
-                <div className="buttons column is-centered">
-                  <input className="input button column is-info is-3" type="submit" value="Editar" />
-                </div>
-                <div className="buttons column is-centered">
-                  <input className="input button column is-info is-3" value="Eliminar" onClick={() => this.deleteArticle()}  />
-                </div>
-              </form>
             </div>
-          </div>
-        
-      
+            <div className="field column is-centered" >
+              <label className="label">Nombre</label>
+              <div className="control columns is-centered">
+                <input className="input column is-6 is-centered" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChangeName(e)} />
+              </div>
+            </div>
+            <div className="field" >
+              <label className="label">Precio</label>
+              <div className="control columns is-centered">
+                <input className="input column is-6 is-centered" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChangePrice(e)} />
+              </div>
+            </div>
+            <div className="buttons column is-centered">
+              <input className="input button column is-info is-3" type="submit" value="Editar" />
+              <input className="input button column is-danger is-3" value="Eliminar" onClick={() => this.deleteArticle()} />
+            </div>
+          </form>
+        </div>
+      </div>
+
+
     )
   }
 }
