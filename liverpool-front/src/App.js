@@ -18,6 +18,8 @@ class App extends Component {
           <Route exact path="/articulos" component={ArticleList} />
           <Route exact path="/articulos/:id" component={ArticleDetails}/>
         </Switch>
+        
+
       </div>
     );
   }

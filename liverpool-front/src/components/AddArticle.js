@@ -5,7 +5,7 @@ import AwesomeComponent from './spinner';
 class AddArticle extends Component {
     constructor(props) {
         super(props);
-        this.state = { imagenUrl: "", nombre: "", precio: 0, loading: false };
+        this.state = { imagenUrl: "", nombre: "", precio: 0, loading: false, img: 0 };
     }
 
     handleFormSubmit = (event) => {
@@ -16,7 +16,7 @@ class AddArticle extends Component {
         axios.post("http://localhost:5000/api/articulos", { imagenUrl, nombre, precio })
             .then(() => {
                 // this.props.getData();
-                this.setState({ imagenUrl: "", nombre: "", precio: 0 });
+                this.setState({ imagenUrl: "", nombre: "", precio: 0, loading: false, img: 0 });
             })
             .catch(error => console.log(error))
     }
@@ -31,7 +31,8 @@ class AddArticle extends Component {
             .then(res => {
                 this.setState({
                     imagenUrl: res.data.secure_url,
-                    loading: false
+                    loading: false,
+                    img: 1
                 })
             })
             .catch(err => { throw err })
@@ -41,6 +42,20 @@ class AddArticle extends Component {
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
+    }
+
+    checkingImg = () => {
+        if (!this.state.img) {
+            if (this.state.loading) {
+                return <AwesomeComponent />
+            } else {
+                return <span className="icon">
+                    <i className="fas fa-home"></i>
+                </span>
+            }
+        } else {
+            return <img src={this.state.imagenUrl} alt='articulo' width='100' />
+        }
     }
 
     render() {
@@ -59,7 +74,7 @@ class AddArticle extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                
                 <div className="container">
                     <div className="columns is-multiline is-mobile">
                         <div className="column is-12">
@@ -78,8 +93,8 @@ class AddArticle extends Component {
                                             </div>
                                         </div>
 
-                                        {this.state.loading ? <AwesomeComponent /> :
-                                            <img src={this.state.imagenUrl} alt='articulo' width='100' />
+                                        {
+                                            this.checkingImg()
                                         }
                                     </div>
                                     <div className="field column is-centered" >
@@ -102,6 +117,7 @@ class AddArticle extends Component {
                         </div>
                     </div>
                 </div>
+                </section>
             </>
         )
     }

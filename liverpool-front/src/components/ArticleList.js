@@ -36,12 +36,12 @@ class ArticleList extends Component {
                             </div>
                             {this.state.listOfArticles.map((article,i) => {
                                 return (
-                                    <div className="column is-3" key={i}>
-                                        <div className="card has-equal-height" key={article._id}>
+                                    <div className="column is-4" key={i}>
+                                        <div className="card has-equal-height " key={article._id}>
                                             <Link to={`/articulos/${article._id}`}>
                                                 <div className="image-card">
-                                                    <div className="image has-spacing image is-3by2">
-                                                        <img src={article.imagenUrl} alt='articulo'/>
+                                                    <div className="image has-spacing image">
+                                                        <img src={article.imagenUrl} alt='articulo' style={{width:"30%",height:"30%",marginLeft:'35%'}}/>
                                                     </div> 
                                                 </div>
                                                 <div className="card-content">

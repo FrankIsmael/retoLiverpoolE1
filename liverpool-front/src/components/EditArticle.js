@@ -109,7 +109,7 @@ class EditArticle extends Component {
             </div>
             <div className="buttons column is-centered">
               <input className="input button column is-info is-3" type="submit" value="Editar" />
-              <input className="input button column is-danger is-3" value="Eliminar" onClick={() => this.deleteArticle()} />
+              <input className="input button column is-danger is-3" placeholder="Eliminar" onClick={() => this.deleteArticle()} />
             </div>
           </form>
         </div>

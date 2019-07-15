@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import EditArticle from './EditArticle';
 
 class ArticleDetails extends Component {
@@ -29,7 +28,7 @@ class ArticleDetails extends Component {
     if (!this.state.nombre) {
       this.getSingleArticle();
     } else {
-      //                                                    {...props} => so we can have 'this.props.history' in Edit.js
+      //                                                    {...props} => so we can have 'this.props.history' in EditArticle.js
       //                                                                                          ^
       //                                                                                          |
       return <EditArticle theArticle={this.state} getTheArticle={this.getSingleArticle} {...this.props} />
@@ -47,18 +46,18 @@ class ArticleDetails extends Component {
               <div className="column is-12">
                 <div className="columns is-centered">
                   <div className="column is-two-thirds has-text-centered has-spacing-bottom has-no-background">
-                    <h2 className="title is-size-3 is-size-1-tablet">Productos</h2>
-                    <div className="subtitle is-size-5 is-size-4-tablet"><p>Lista de productos de la base de datos</p></div>
+                    <h2 className="title is-size-3 is-size-1-tablet">Producto </h2>
+                    <div className="subtitle is-size-5 is-size-4-tablet"><p>Editar o Eliminar</p></div>
                   </div>
                 </div>
               </div>
 
-              <div className="column is-12">
+              <div className="column is-12" style={{marginBottom: '15px'}}>
                 <div className="columns is-centered">
-                  <div className="card" >
+                  <div className="column card is-6" >
                     <div className="image-card">
-                      <div className="image image is-3by2">
-                        <img src={this.state.imagenUrl} alt='articulo' />
+                      <div className="image image">
+                        <img src={this.state.imagenUrl} alt='articulo' style={{ width: "20%", height: "20%", marginLeft: '40%' }} />
                       </div>
                     </div>
                     <div className="card-content">
@@ -68,9 +67,12 @@ class ArticleDetails extends Component {
                   </div>
                 </div>
               </div>
-             
+              <div></div>
+              
                 {this.renderEditForm()}
-          
+              
+                
+             
             </div>
           </div>
         </section>
