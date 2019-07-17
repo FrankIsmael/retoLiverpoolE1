@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 const Router = () => (
     <BrowserRouter>
-        <App/>
+        <App />
     </BrowserRouter>
 )
 

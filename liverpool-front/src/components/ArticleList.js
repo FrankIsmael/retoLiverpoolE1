@@ -24,7 +24,7 @@ class ArticleList extends Component {
         return (
             <>
                 <section className="section is-top">
-                    <div className="container">
+                    <div className="container is-fluid">
                         <div className="columns is-multiline">
                             <div className="column is-12">
                                 <div className="columns is-centered">

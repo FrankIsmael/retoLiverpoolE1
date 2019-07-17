@@ -78,13 +78,13 @@ class EditArticle extends Component {
         <div className="columns is-centered">
           <form className="box column is-half" onSubmit={this.handleFormSubmit}>
             <div className="field column" >
-              <label className="label column">Imagen</label>
+              <label className="label column is-size-4">Imagen</label>
               <div className="field column is-centered">
                 <div className="file is-primary column is-centered">
                   <label className="file-label">
                     <input className="file-input column is-6 is-centered has-background-success" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
                     <span className="file-cta">
-                      <span className="file-label">Elige Archivo… </span>
+                      <span className="file-label is-size-4">Elige Archivo… </span>
                     </span>
                   </label>
                 </div>
@@ -96,20 +96,20 @@ class EditArticle extends Component {
 
             </div>
             <div className="field column is-centered" >
-              <label className="label">Nombre</label>
+              <label className="label is-size-4">Nombre</label>
               <div className="control columns is-centered">
-                <input className="input column is-6 is-centered" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChangeName(e)} />
+                <input className="input column is-6 is-centered is-size-4" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChangeName(e)} />
               </div>
             </div>
             <div className="field" >
-              <label className="label">Precio</label>
+              <label className="label is-size-4">Precio</label>
               <div className="control columns is-centered">
-                <input className="input column is-6 is-centered" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChangePrice(e)} />
+                <input className="input column is-6 is-centered is-size-4" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChangePrice(e)} />
               </div>
             </div>
             <div className="buttons column is-centered">
-              <input className="input button column is-info is-3" type="submit" value="Editar" />
-              <input className="input button column is-danger is-3" placeholder="Eliminar" onClick={() => this.deleteArticle()} />
+              <input className="input button column is-info is-3 is-size-4" type="submit" value="Editar" />
+              <input className="input button column is-danger is-3 is-size-4" placeholder="Eliminar" onClick={() => this.deleteArticle()} />
             </div>
           </form>
         </div>

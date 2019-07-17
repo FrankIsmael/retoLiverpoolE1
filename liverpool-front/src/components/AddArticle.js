@@ -61,33 +61,34 @@ class AddArticle extends Component {
     render() {
         return (
             <>
-                <section className="section is-top">
-                    <div className="container">
+                <section className="section is-medium">
+                    <div className="container is-fluid">
                         <div className="columns is-multiline is-mobile">
                             <div className="column is-12">
                                 <div className="columns is-centered">
                                     <div className="column is-two-thirds has-text-centered has-spacing-bottom has-no-background">
-                                        <h2 className="title is-size-5 is-size-3-tablet">Bienvenido</h2>
-                                        <div className="subtitle is-size-5 is-size-4-tablet"><p>Agregar artículo</p></div>
+                                        <h2 className="title is-size-3 is-size-2-tablet">Bienvenido</h2>
+                                        <div className="subtitle is-size-3 is-size-3-tablet"><p>Agregar artículo</p></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br/>
                 
-                <div className="container">
+                <div className="container is-fluid">
                     <div className="columns is-multiline is-mobile">
                         <div className="column is-12">
                             <div className="columns is-centered">
                                 <form className="box column is-half" onSubmit={this.handleFormSubmit}>
                                     <div className="field " >
-                                        <label className="label">Imagen</label>
+                                        <label className="label is-size-4">Imagen</label>
                                         <div className="field column is-centered">
                                             <div className="file is-primary column is-centered">
                                                 <label className="file-label">
                                                     <input className="file-input column is-6 is-centered has-background-success" type="file" name="imagenUrl" onChange={this.handleFileUpload} placeholder="name" />
                                                     <span className="file-cta">
-                                                        <span className="file-label">Elige Archivo… </span>
+                                                        <span className="file-label is-size-4">Elige Archivo… </span>
                                                     </span>
                                                 </label>
                                             </div>
@@ -98,19 +99,19 @@ class AddArticle extends Component {
                                         }
                                     </div>
                                     <div className="field column is-centered" >
-                                        <label className="label">Nombre</label>
+                                        <label className="label is-size-4">Nombre</label>
                                         <div className="control columns is-centered">
-                                            <input className="input column is-6 is-centered" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChange(e)} />
+                                            <input className="input column is-6 is-centered is-size-4" type="text" name="nombre" value={this.state.nombre} onChange={e => this.handleChange(e)} />
                                         </div>
                                     </div>
                                     <div className="field" >
-                                        <label className="label">Precio</label>
+                                        <label className="label is-size-4">Precio</label>
                                         <div className="control columns is-centered">
-                                            <input className="input column is-6 is-centered" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChange(e)} />
+                                            <input className="input column is-6 is-centered is-size-4" type="number" name="precio" value={this.state.precio} onChange={e => this.handleChange(e)} />
                                         </div>
                                     </div>
                                     <div className="buttons column is-centered">
-                                        <input className="input button column is-info is-3" type="submit" value="Enviar a BD" />
+                                        <input className="input button column is-info is-4 is-size-4" type="submit" value="Enviar a BD" />
                                     </div>
                                 </form>
                             </div>
