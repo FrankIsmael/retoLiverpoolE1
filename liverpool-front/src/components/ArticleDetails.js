@@ -54,15 +54,15 @@ class ArticleDetails extends Component {
 
               <div className="column is-12" style={{marginBottom: '15px'}}>
                 <div className="columns is-centered">
-                  <div className="column card is-6" >
+                  <div className="column card is-6" style={{padding:"0"}} >
                     <div className="image-card">
                       <div className="image image">
                         <img src={this.state.imagenUrl} alt='articulo' style={{ width: "20%", height: "20%", marginLeft: '40%' }} />
                       </div>
                     </div>
-                    <div className="card-content">
+                    <div className="card-content has-background-light">
                       <h3 className="title">{this.state.nombre}</h3>
-                      <h2 className="subtitle">${this.state.precio}</h2>
+                      <h2 className="subtitle has-text-danger">${this.state.precio}</h2>
                     </div>
                   </div>
                 </div>

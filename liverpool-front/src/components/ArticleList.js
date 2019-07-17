@@ -34,21 +34,23 @@ class ArticleList extends Component {
                                     </div>
                                 </div>
                             </div>
-                            {this.state.listOfArticles.map((article,i) => {
+                            {this.state.listOfArticles.map((article, i) => {
                                 return (
                                     <div className="column is-4" key={i}>
                                         <div className="card has-equal-height " key={article._id}>
-                                            <Link to={`/articulos/${article._id}`}>
-                                                <div className="image-card">
-                                                    <div className="image has-spacing image">
-                                                        <img src={article.imagenUrl} alt='articulo' style={{width:"30%",height:"30%",marginLeft:'35%'}}/>
-                                                    </div> 
+
+                                            <div className="image-card">
+                                                <div className="image has-spacing image">
+                                                    <Link to={`/articulos/${article._id}`}>
+                                                        <img src={article.imagenUrl} alt='articulo' style={{ width: "30%", height: "30%", marginLeft: '35%' }} />
+                                                    </Link>
                                                 </div>
-                                                <div className="card-content">
-                                                    <h3 className="title">{article.nombre}</h3>
-                                                    <h2 className="subtitle">${article.precio}</h2>
-                                                </div>
-                                            </Link>
+                                            </div>
+                                            <div className="card-content has-background-light">
+                                                <h3 className="title">{article.nombre}</h3>
+                                                <h2 className="subtitle has-text-danger">${article.precio}</h2>
+                                            </div>
+
                                         </div>
                                     </div>
                                 )
